@@ -3,15 +3,35 @@
 mkdir ~/install
 mkdir ~/install/kcptun
 mkdir ~/install/TcpRoute2
-mkdir ~/install/shadowsocks
+
 mkdir ~/install/auto_script
 
-# log directories
 mkdir /var/log/kcptun/
 mkdir /var/log/TcpRoute2/
-mkdir /var/log/shadowsocks/
 
-sudo apt-get install vim python python-pip python-dev 
+############################## install software	########################
+sudo apt-get install -y vim python python-pip python-dev proxychains
 
-# run other scripts
+############################## Permit root to log in with password #####
+sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+service ssh restart
+
+############################## run other installations #################
 ./install_shadowsocks.sh
+
+# ./install_serverspeed.sh
+
+
+############################## other confiturations ####################
+# timezone
+sudo dpkg-reconfigure tzdata
+
+############################## dns settings ############################
+sudo apt-get remove resolvconf -y
+sudo rm /etc/resolv.conf
+sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
+sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+
+############################## vim config file #########################
+cp ./default/.vimrc ~/.vimrc
