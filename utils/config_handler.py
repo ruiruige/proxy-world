@@ -1,5 +1,5 @@
 #/usr/bin/env python3
-# coding=uft-8
+# coding=utf-8
 
 import traceback
 import click
@@ -66,7 +66,7 @@ class config_file:
 
         return rst
 
-    def set_config(self)
+    def set_config(self):
         self.modified_lines = self.lines[:]
 
         if hit_idxs:
