@@ -17,13 +17,13 @@ class config_file:
                  replacement=None,
                  config=None):
 
-        self.__load__()
-
         self.fp = fp
         self.select_mode = select_mode
         self.replacement = replacement
         self.multiple = multiple
         self.config = config
+
+        self.__load__()
 
         self.lines = None
         self.modified_lines = None
