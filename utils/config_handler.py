@@ -32,7 +32,7 @@ class config_file:
         with open(self.fp, "rb") as f:
             self.lines = f.readlines()
 
-    def save(self, fp=None):
+    def __save__(self, fp=None):
         with open(self.fp, "wb") as f:
             f.writelines()
 
@@ -75,6 +75,8 @@ class config_file:
         else:
             self.modified_lines.append(self.replacement)
 
+        self.__save__()
+
 
 # click settings
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
@@ -89,9 +91,9 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 def entry(set_config, config, file_path,  replacement):
 
     if set_config:
-        if and replacement:
-        cf = config_file(fp=file_path, replacement=replacement, config=config)
-        cf.set_config()
+        if config and replacement:
+        	cf = config_file(fp=file_path, replacement=replacement, config=config)
+        	cf.set_config()
 
 
 if "__main__" == __name__:
