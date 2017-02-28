@@ -92,8 +92,6 @@ class config_file:
         if not self.replacement.endswith(line_feed):
             self.replacement = self.replacement + line_feed
 
-
-
     def set_config(self):
         self.modified_lines = self.lines[:]
 
