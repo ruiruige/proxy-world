@@ -25,7 +25,6 @@ class config_file:
 
         self.__load__()
 
-        self.lines = None
         self.modified_lines = None
 
     def __load__(self):
