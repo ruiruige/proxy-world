@@ -92,8 +92,9 @@ def entry(set_config, config, file_path,  replacement):
 
     if set_config:
         if config and replacement:
-        	cf = config_file(fp=file_path, replacement=replacement, config=config)
-        	cf.set_config()
+            cf = config_file(
+                fp=file_path, replacement=replacement, config=config)
+            cf.set_config()
 
 
 if "__main__" == __name__:
@@ -101,5 +102,5 @@ if "__main__" == __name__:
         entry()
 
     except Exception as e:
-        print e
-        print traceback.format_exc()
+        print(e)
+        print(traceback.format_exc())
