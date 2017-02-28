@@ -54,7 +54,7 @@ class config_file:
             if self.match(line=line):
                 hit_idxs.append(i)
 
-                if multiple:
+                if self.multiple:
                     continue
                 else:
                     break
