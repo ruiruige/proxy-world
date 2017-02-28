@@ -28,12 +28,12 @@ class config_file:
         self.modified_lines = None
 
     def __load__(self):
-        with open(self.fp, "rb") as f:
+        with open(self.fp, "rt") as f:
             self.lines = f.readlines()
 
     def __save__(self, fp=None):
-        with open(self.fp, "wb") as f:
-            f.writelines()
+        with open(self.fp, "wt") as f:
+            f.writelines(self.modified_lines)
 
     def select(self,
                hit_feature=None,
