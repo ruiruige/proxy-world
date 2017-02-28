@@ -68,6 +68,8 @@ class config_file:
     def set_config(self):
         self.modified_lines = self.lines[:]
 
+        hit_idxs = self.select()
+
         if hit_idxs:
             for idx in hit_idxs:
                 self.modified_lines[idx] = replacement
