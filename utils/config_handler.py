@@ -86,14 +86,14 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 # if is_flag is used type=click.BOOL is not more needed
 @click.option('--set-config', help='if set , will replace the matched line', is_flag=True)
 @click.option('--config', help='configuration which will be used to match the line')
-@click.option('--file', '-f', help='specify your config file', required=True)
+@click.option('--file', '-f', "file_path", help='specify your config file', required=True)
 @click.option('--replacement', '-r', help='replace the matched line with this')
 def entry(set_config, config, file, replacement):
 
     if set_config:
         if config and replacement:
             cf = config_file(
-                fp=file, replacement=replacement, config=config)
+                fp=file_path, replacement=replacement, config=config)
             cf.set_config()
 
 
