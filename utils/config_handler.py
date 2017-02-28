@@ -80,6 +80,8 @@ class config_file:
         if not last_line.endswith(line_feed):
             self.modified_lines[-1] = last_line + line_feed
 
+        self.modified_lines.append(self.replacement)
+
     def adjust_replacement(self):
         """调整填充物，使其符合规范
         目前仅仅是给其后面增加一个换行符
@@ -90,7 +92,7 @@ class config_file:
         if not self.replacement.endswith(line_feed):
             self.replacement = self.replacement + line_feed
 
-        self.modified_lines.append(self.replacement)
+
 
     def set_config(self):
         self.modified_lines = self.lines[:]
