@@ -5,6 +5,9 @@ import traceback
 import click
 
 
+line_feed = "\n"
+
+
 class config_file:
 
     """这是一个配置文件的类
@@ -27,7 +30,12 @@ class config_file:
 
         self.modified_lines = None
 
+        # run init functions
+        self.adjust_replacement()
+
     def __load__(self):
+        # t 表示text模式，读取的是str
+        # b 表示binary模式，读取的是bytes
         with open(self.fp, "rt") as f:
             self.lines = f.readlines()
 
@@ -65,6 +73,25 @@ class config_file:
 
         return rst
 
+    def append_replacement(self):
+        last_line = self.modified_lines[-1]
+
+        # 如果最后一行，没有换行符，给它加上
+        if not last_line.endswith(line_feed):
+            self.modified_lines[-1] = last_line + line_feed
+
+    def adjust_replacement(self):
+        """调整填充物，使其符合规范
+        目前仅仅是给其后面增加一个换行符
+        """
+        # 如果待添加的新行，开头有换行符，认为是业务内容，不予处理
+
+        # 如果待添加的新行，最后没有换行符，给它加一个
+        if not self.replacement.endswith(line_feed):
+            self.replacement = self.replacement + line_feed
+
+        self.modified_lines.append(self.replacement)
+
     def set_config(self):
         self.modified_lines = self.lines[:]
 
@@ -72,9 +99,9 @@ class config_file:
 
         if hit_idxs:
             for idx in hit_idxs:
-                self.modified_lines[idx] = replacement
+                self.modified_lines[idx] = self.replacement
         else:
-            self.modified_lines.append(self.replacement)
+            self.append_replacement()
 
         self.__save__()
 
