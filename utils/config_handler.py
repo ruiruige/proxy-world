@@ -41,7 +41,7 @@ class config_file:
 
         hit_idxs = []
         for i in range(len(self.lines)):
-            line = lines[i]
+            line = self.lines[i]
 
             if self.match(line=line, config=self.config, exclude_feature=exclude_feature):
                 hit_idxs.append(i)
