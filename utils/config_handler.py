@@ -100,6 +100,6 @@ if "__main__" == __name__:
     try:
         entry()
 
-    except Exception, e:
+    except Exception as e:
         print e
         print traceback.format_exc()
