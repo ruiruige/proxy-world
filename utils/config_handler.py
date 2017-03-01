@@ -28,7 +28,8 @@ class config_file:
 
         self.__load__()
 
-        self.modified_lines = None
+        # 复制一份文件内容到修改区域
+        self.modified_lines = self.lines[:]
 
         # run init functions
         self.adjust_replacement()
@@ -39,7 +40,7 @@ class config_file:
         with open(self.fp, "rt") as f:
             self.lines = f.readlines()
 
-    def __save__(self, fp=None):
+    def save(self, fp=None):
         with open(self.fp, "wt") as f:
             f.writelines(self.modified_lines)
 
@@ -93,8 +94,6 @@ class config_file:
             self.replacement = self.replacement + line_feed
 
     def set_config(self):
-        self.modified_lines = self.lines[:]
-
         hit_idxs = self.select()
 
         if hit_idxs:
@@ -103,8 +102,19 @@ class config_file:
         else:
             self.append_replacement()
 
-        self.__save__()
+    def append_boot_cmd(self):
+        # 找到"exit 0" 然后删掉
+        for i in xrange(len(self.modified_lines)-1, -1, -1):
+            line = self.modified_lines[i]
 
+            if line.strip() == "exit 0":
+                del self.modified_lines[i]
+                break
+
+        # 设置配置项
+        self.config()
+        # 补回一个exit 0
+        self.modified_lines.append("exit 0\n")
 
 # click settings
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
@@ -113,6 +123,7 @@ CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
 @click.command(context_settings=CONTEXT_SETTINGS)
 # if is_flag is used type=click.BOOL is not more needed
 @click.option('--set-config', help='if set , will replace the matched line', is_flag=True)
+@click.option('--append-boot-cmd', help='if set , will add a boot command to /etc/rc.local', is_flag=True)
 @click.option('--config', help='configuration which will be used to match the line')
 @click.option('--file', '-f', "file_path", help='specify your config file', required=True)
 @click.option('--replacement', '-r', help='replace the matched line with this')
@@ -123,6 +134,14 @@ def entry(set_config, config, file_path, replacement):
             cf = config_file(
                 fp=file_path, replacement=replacement, config=config)
             cf.set_config()
+            cf.save()
+
+    if append_boot_cmd:
+        if config and replacement:
+            cf = config_file(
+                fp=file_path, replacement=replacement, config=config)
+            cf.append_boot_cmd()
+            cf.save()
 
 
 if "__main__" == __name__:

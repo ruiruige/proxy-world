@@ -36,3 +36,6 @@ sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 ############################## vim config file #########################
 cp ./default/vimrc.vimrc ~/.vimrc
+
+############################## optimize network ########################
+./common/network_optimize.sh
