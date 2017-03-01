@@ -104,7 +104,7 @@ class config_file:
 
     def append_boot_cmd(self):
         # 找到"exit 0" 然后删掉
-        for i in xrange(len(self.modified_lines)-1, -1, -1):
+        for i in range(len(self.modified_lines)-1, -1, -1):
             line = self.modified_lines[i]
 
             if line.strip() == "exit 0":
