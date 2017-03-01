@@ -112,7 +112,7 @@ class config_file:
                 break
 
         # 设置配置项
-        self.config()
+        self.set_config()
         # 补回一个exit 0
         self.modified_lines.append("exit 0\n")
 
