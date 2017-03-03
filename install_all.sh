@@ -10,18 +10,20 @@ mkdir /var/log/kcptun/
 mkdir /var/log/TcpRoute2/
 
 ############################## install software	########################
-sudo apt-get install -y vim python python-pip python-dev proxychains python3 python3-pip python3-dev 
+sudo apt-get install -y vim python python-pip python-dev proxychains python3 python3-pip python3-dev screen
 sudo pip3 install click
 
+# 某些编译会用到
+sudo apt-get install autoconf automake libtool
 ############################## Permit root to log in with password #####
 sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
 sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 service ssh restart
 
 ############################## run other installations #################
-./install_shadowsocks.sh
+bash ./install_shadowsocks.sh
 
-# ./install_serverspeed.sh
+# bash ./install_serverspeed.sh
 
 
 ############################## other confiturations ####################
@@ -38,4 +40,4 @@ sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 cp ./default/vimrc.vimrc ~/.vimrc
 
 ############################## optimize network ########################
-./common/network_optimize.sh
+bash ./common/network_optimize.sh
