@@ -16,15 +16,15 @@ sudo pip3 install click
 # 某些编译会用到
 sudo apt-get install autoconf automake libtool
 ############################## Permit root to log in with password #####
-sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-service ssh restart
+sudo sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
+sudo sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sudo service ssh restart
 
 ############################## run other installations #################
 bash ./shadowsocks/install_shadowsocks.sh
 
 # bash ./serverspeed/install_serverspeed.sh
-
+# bash ./squid/install_squid.sh
 
 ############################## other confiturations ####################
 # timezone
