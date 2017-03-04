@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+basepath=$(cd `dirname $0`; pwd)
 
 mkdir ~/install/shadowsocks
 mkdir /var/log/shadowsocks/
@@ -17,4 +18,4 @@ sudo ldconfig
 
 
 ############################## copy config file	########################
-cp ./shadowsocks.json /etc/
+cp $basepath/shadowsocks.json /etc/

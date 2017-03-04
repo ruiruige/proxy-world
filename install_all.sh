@@ -21,9 +21,9 @@ sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /et
 service ssh restart
 
 ############################## run other installations #################
-bash ./install_shadowsocks.sh
+bash ./shadowsocks/install_shadowsocks.sh
 
-# bash ./install_serverspeed.sh
+# bash ./serverspeed/install_serverspeed.sh
 
 
 ############################## other confiturations ####################
