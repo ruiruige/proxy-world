@@ -37,9 +37,11 @@ sudo python3 $basepath/../../utils/config_handler.py --set-config --config 'net.
 sudo python3 $basepath/../../utils/config_handler.py --append-boot-cmd --config 'iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE' -r 'iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE' -f /etc/rc.local
 
 # 注册服务
-cd /etc/init.d
-sudo ln -s /lib/init/upstart-job ocserv
-sudo cp $basepath/ocserv_upstart.conf /etc/init/ocserv.conf
+#cd /etc/init.d
+#sudo ln -s /lib/init/upstart-job ocserv
+#sudo cp $basepath/ocserv_upstart.conf /etc/init/ocserv.conf
+
+
 
 # 拷贝配置文件
 cp $basepath/ocserv.conf /etc/ocserv/
