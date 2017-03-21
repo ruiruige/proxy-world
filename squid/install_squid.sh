@@ -24,7 +24,7 @@ mkdir -p /usr/local/squid/var/spool/
 
 chown -R squid /usr/local/squid
 
-sudo python3 $basepath/../utils/config_handler.py --append-boot-cmd --config '/usr/local/squid/sbin/squid -s' -r '/usr/local/squid/sbin/squid -s' -f /etc/rc.local
+sudo python3 $basepath/../utils/config_handler.py --append-boot-cmd --config 'service squid start' -r 'service squid start' -f /etc/rc.local
 
 echo "需要添加账号密码"
 echo "需要添加证书"
