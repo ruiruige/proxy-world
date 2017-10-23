@@ -12,7 +12,7 @@ wget http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.24.tar.gz
 tar -xvzf squid-3.5.24.tar.gz
 cd squid-3.5.24
 
-./configure --enable-ssl --with-open-ssl=/usr/include/openssl
+./configure --enable-ssl --with-openssl=/usr/include/openssl
 make
 sudo make install
 
