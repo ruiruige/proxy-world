@@ -12,13 +12,14 @@ mkdir /var/log/TcpRoute2/
 ############################## install software	########################
 sudo apt-get install -y vim python python-pip python-dev proxychains python3 python3-pip python3-dev screen
 sudo pip3 install click
+sudo pip install --upgrade pip
 
 # 某些编译会用到
 sudo apt-get install autoconf automake libtool
 ############################## Permit root to log in with password #####
-sudo sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
-sudo sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
-sudo service ssh restart
+# sudo sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
+# sudo sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+# sudo service ssh restart
 
 ############################## run other installations #################
 bash ./shadowsocks/install_shadowsocks.sh
