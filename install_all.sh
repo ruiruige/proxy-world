@@ -15,7 +15,7 @@ sudo pip3 install click
 sudo pip install --upgrade pip
 
 # 某些编译会用到
-sudo apt-get install autoconf automake libtool
+sudo apt-get install autoconf automake libtool -y
 ############################## Permit root to log in with password #####
 # sudo sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
 # sudo sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
