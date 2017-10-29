@@ -10,7 +10,7 @@ cd ~/install/shadowsocks
 wget https://download.libsodium.org/libsodium/releases/LATEST.tar.gz
 tar -vxzf ./LATEST.tar.gz
 
-cd libsodium-1*
+cd libsodium-*
 ./configure
 make 
 sudo make install
