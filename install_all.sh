@@ -10,7 +10,7 @@ mkdir /var/log/kcptun/
 mkdir /var/log/TcpRoute2/
 
 ############################## install software	########################
-sudo apt-get install -y vim python python-pip python-dev proxychains python3 python3-pip python3-dev screen
+sudo apt-get install -y vim python python-pip python-dev proxychains python3 python3-pip python3-dev screen make
 sudo pip3 install click
 sudo pip install --upgrade pip
 
