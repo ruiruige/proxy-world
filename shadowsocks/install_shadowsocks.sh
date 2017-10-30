@@ -4,6 +4,7 @@ basepath=$(cd `dirname $0`; pwd)
 mkdir ~/install/shadowsocks
 mkdir /var/log/shadowsocks/
 
+pip install -y setuptools
 pip install shadowsocks
 
 cd ~/install/shadowsocks
