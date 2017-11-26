@@ -1,6 +1,6 @@
 [Unit]
 Description=shadowsocks
-Documentation=/lib/systemd/system/shadowsocks.service,systemctl daemon-reload,systemctl enable shadowsocks
+Documentation=https://blog.ruiruige1991.xyz
 After=network.target
 
 [Service]
