@@ -26,6 +26,11 @@ chown -R squid /usr/local/squid
 
 sudo python3 $basepath/../utils/config_handler.py --append-boot-cmd --config 'service squid start' -r 'service squid start' -f /etc/rc.local
 
+# 安装启动项
+cp $basepath/squid.service /lib/systemd/system/
+systemctl daemon-reload
+systemctl enable squid
+
 echo "需要添加账号密码"
 echo "需要添加证书"
 echo "需要修改配置文件"
