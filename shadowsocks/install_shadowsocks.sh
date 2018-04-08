@@ -20,3 +20,8 @@ sudo ldconfig
 
 ############################## copy config file	########################
 cp $basepath/shadowsocks.json /etc/
+
+# 安装启动项
+cp $basepath/shadowsocks.service /lib/systemd/system/
+systemctl daemon-reload
+systemctl enable shadowsocks
