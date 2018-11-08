@@ -16,7 +16,7 @@ cd squid-3.5.24
 make
 sudo make install
 
-cp $basepath/squid.conf /usr/local/squid/etc/
+cp ${basepath}/squid.conf /usr/local/squid/etc/
 
 # root 下
 useradd squid
@@ -24,10 +24,10 @@ mkdir -p /usr/local/squid/var/spool/
 
 chown -R squid /usr/local/squid
 
-sudo python3 $basepath/../utils/config_handler.py --append-boot-cmd --config 'service squid start' -r 'service squid start' -f /etc/rc.local
+sudo python3 ${basepath}/../../utils/config_handler.py --append-boot-cmd --config 'service squid start' -r 'service squid start' -f /etc/rc.local
 
 # 安装启动项
-cp $basepath/squid.service /lib/systemd/system/
+cp ${basepath}/squid.service /lib/systemd/system/
 systemctl daemon-reload
 systemctl enable squid
 

@@ -1,15 +1,21 @@
 <component name="ProjectDictionaryState">
   <dictionary name="admin">
     <words>
+      <w>autojump</w>
+      <w>basepath</w>
       <w>chacha</w>
       <w>danted</w>
       <w>idxs</w>
       <w>iptables</w>
+      <w>killall</w>
       <w>nameserver</w>
+      <w>nofile</w>
       <w>sbin</w>
       <w>serverspeed</w>
       <w>shadowsocks</w>
       <w>sockd</w>
+      <w>ssserver</w>
+      <w>ulimit</w>
     </words>
   </dictionary>
 </component>

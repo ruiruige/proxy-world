@@ -22,6 +22,14 @@ class BaseSystemFile(object):
         """
         pass
 
+    def add_multi_line_setting(self, name, value):
+        """
+        增加一个多行的配置
+        :param name:
+        :param value:
+        """
+        pass
+
     def match_lines_util_break(self):
         """
         待定

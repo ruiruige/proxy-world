@@ -23,10 +23,10 @@ sudo apt-get install autoconf automake libtool -y
 # sudo service ssh restart
 
 ############################## run other installations #################
-bash ./shadowsocks/install_shadowsocks.sh
+bash ./software/shadowsocks/install_shadowsocks.sh
 
-# bash ./serverspeed/install_serverspeed.sh
-# bash ./squid/install_squid.sh
+# bash ./software/serverspeed/install_serverspeed.sh
+# bash ./software/squid/install_squid.sh
 
 ############################## other confiturations ####################
 # timezone
