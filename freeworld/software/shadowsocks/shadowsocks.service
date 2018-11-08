@@ -1,0 +1,10 @@
+[Unit]
+Description=shadowsocks
+Documentation=https://blog.ruiruige1991.xyz
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/bin/ssserver -c /etc/shadowsocks.json -d start
+ExecStop=/usr/bin/killall ssserver
+LimitNOFILE=65535

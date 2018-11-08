@@ -1,0 +1,10 @@
+[Unit]
+Description=squid
+Documentation=https://blog.ruiruige1991.xyz
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/usr/local/squid/sbin/squid -s
+ExecStop=/usr/bin/killall squid
+LimitNOFILE=65535

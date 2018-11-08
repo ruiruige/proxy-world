@@ -23,10 +23,10 @@ sudo apt-get install autoconf automake libtool -y
 # sudo service ssh restart
 
 ############################## run other installations #################
-bash ./shadowsocks/install_shadowsocks.sh
+bash ./freeworld//software/shadowsocks/install_shadowsocks.sh
 
-# bash ./serverspeed/install_serverspeed.sh
-# bash ./squid/install_squid.sh
+# bash ./software/serverspeed/install_serverspeed.sh
+# bash ./software/squid/install_squid.sh
 
 ############################## other confiturations ####################
 # timezone
@@ -39,7 +39,7 @@ sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
 sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 ############################## vim config file #########################
-cp ./default/vimrc.vimrc ~/.vimrc
+cp ./freeworld//default/vimrc.vimrc ~/.vimrc
 
 ############################## optimize network ########################
-bash ./common/network_optimize.sh
+bash ./freeworld//common/network_optimize.sh
