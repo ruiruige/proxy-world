@@ -17,6 +17,7 @@ sudo pip install --upgrade pip
 
 # 某些编译会用到
 sudo apt-get install autoconf automake libtool -y
+sudo apt install -y fail2ban
 ############################## Permit root to log in with password #####
 # sudo sed -i 's/[ ]*PermitRootLogin[ ]*no[ ]*/PermitRootLogin yes/g' /etc/ssh/sshd_config
 # sudo sed -i 's/[ ]*PasswordAuthentication[ ]*no[ ]*/PasswordAuthentication yes/g' /etc/ssh/sshd_config
@@ -42,4 +43,4 @@ sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 cp ./freeworld//default/vimrc.vimrc ~/.vimrc
 
 ############################## optimize network ########################
-bash ./freeworld//common/network_optimize.sh
+bash ./freeworld/common/network_optimize.sh
