@@ -11,3 +11,6 @@ sudo python3 ${basepath}/../utils/config_handler.py --set-config --config 'sessi
 
 # ulimit -SHn 51200
 sudo python3 ${basepath}/../utils/config_handler.py --set-config --config 'ulimit -SHn ' -r 'ulimit -SHn 51200' -f /etc/profile
+
+# install BBR
+wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && ./bbr.sh
