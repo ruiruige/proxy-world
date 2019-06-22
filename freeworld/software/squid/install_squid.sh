@@ -31,7 +31,9 @@ cp ${basepath}/squid.service /lib/systemd/system/
 systemctl daemon-reload
 systemctl enable squid
 
+# 把Squid加入环境变量
+echo 'export PATH=$PATH:/usr/local/squid/sbin/' >> /etc/profile
+
 echo "需要添加账号密码"
 echo "需要添加证书"
 echo "需要修改配置文件"
-echo "需要修改环境变量"
