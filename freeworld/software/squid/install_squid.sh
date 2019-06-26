@@ -24,8 +24,6 @@ mkdir -p /usr/local/squid/var/spool/
 
 chown -R squid /usr/local/squid
 
-sudo python3 ${basepath}/../../utils/config_handler.py --append-boot-cmd --config 'service squid start' -r 'service squid start' -f /etc/rc.local
-
 # 安装启动项
 cp ${basepath}/squid.service /lib/systemd/system/
 systemctl daemon-reload
