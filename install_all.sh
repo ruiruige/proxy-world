@@ -25,7 +25,7 @@ sudo apt install -y fail2ban
 
 ############################## run other installations #################
 bash ./freeworld//software/shadowsocks/install_shadowsocks.sh
-bash ./software/squid/install_squid.sh
+bash ./freeworld/software/squid/install_squid.sh
 # bash ./software/serverspeed/install_serverspeed.sh
 
 ############################## other confiturations ####################
