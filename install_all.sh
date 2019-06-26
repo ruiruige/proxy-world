@@ -33,10 +33,10 @@ bash ./software/squid/install_squid.sh
 sudo dpkg-reconfigure tzdata
 
 ############################## dns settings ############################
-sudo apt-get remove resolvconf -y
-sudo rm /etc/resolv.conf
-sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
-sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+#sudo apt-get remove resolvconf -y
+#sudo rm /etc/resolv.conf
+#sudo echo "nameserver 8.8.8.8" > /etc/resolv.conf
+#sudo echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 ############################## vim config file #########################
 cp ./freeworld//default/vimrc.vimrc ~/.vimrc
