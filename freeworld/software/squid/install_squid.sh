@@ -8,10 +8,12 @@ sudo apt-get install apache2-utils -y
 mkdir ~/install/squid
 cd ~/install/squid
 
-wget http://www.squid-cache.org/Versions/v3/3.5/squid-3.5.24.tar.gz
-tar -xvzf squid-3.5.24.tar.gz
-cd squid-3.5.24
+http://www.squid-cache.org/Versions/v4/squid-4.8.tar.gz
+tar -xvzf squid-4.8.tar.gz
+cd squid-4.8
 
+# ubuntu 18.04自带openssl 1.1.x，squid不兼容这个，具体见这里：https://github.com/squid-cache/squid/pull/333
+sed -i s/SSL_library_init/OPENSSL_init_ssl/ configure.ac configure
 ./configure --enable-ssl --with-openssl=/usr/include/openssl
 make
 sudo make install
