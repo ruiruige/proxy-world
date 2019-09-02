@@ -24,8 +24,7 @@ cp ${basepath}/squid.conf /usr/local/squid/etc/
 useradd squid
 mkdir -p /usr/local/squid/var/spool/
 
-chown -R squid /usr/local/squid
-chown -R squid:squid /usr/local/squid/var/
+chown -R squid:squid /usr/local/squid
 
 # 安装启动项
 cp ${basepath}/squid.service /lib/systemd/system/
